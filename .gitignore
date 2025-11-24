@@ -1,0 +1,37 @@
+# Node modules
+node_modules/
+package-lock.json
+
+# Cypress
+cypress/downloads/
+cypress/screenshots/
+cypress/videos/
+
+# Build artifacts
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Test results
+test-results.log
+test-results/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
