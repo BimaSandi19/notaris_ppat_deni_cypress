@@ -58,11 +58,15 @@ describe("REMINDER - TC13 Sort and Filter Tagihan", () => {
     cy.get("table tbody tr")
       .first()
       .within(() => {
-        cy.get("td").eq(4).then(($cell) => {
-          const tanggalSebelumSort = $cell.text().trim();
-          cy.log(`📌 Tanggal Jatuh Tempo sebelum sort: ${tanggalSebelumSort}`);
-          cy.wrap(tanggalSebelumSort).as("tanggalSebelumSort");
-        });
+        cy.get("td")
+          .eq(4)
+          .then(($cell) => {
+            const tanggalSebelumSort = $cell.text().trim();
+            cy.log(
+              `📌 Tanggal Jatuh Tempo sebelum sort: ${tanggalSebelumSort}`
+            );
+            cy.wrap(tanggalSebelumSort).as("tanggalSebelumSort");
+          });
       });
 
     // Step 8: Klik opsi "Tanggal Jatuh Tempo" dari dropdown
@@ -78,11 +82,15 @@ describe("REMINDER - TC13 Sort and Filter Tagihan", () => {
     cy.get("table tbody tr")
       .first()
       .within(() => {
-        cy.get("td").eq(4).then(($cell) => {
-          const tanggalSetelahSort = $cell.text().trim();
-          cy.log(`📌 Tanggal Jatuh Tempo setelah sort: ${tanggalSetelahSort}`);
-          cy.wrap(tanggalSetelahSort).as("tanggalSetelahSort");
-        });
+        cy.get("td")
+          .eq(4)
+          .then(($cell) => {
+            const tanggalSetelahSort = $cell.text().trim();
+            cy.log(
+              `📌 Tanggal Jatuh Tempo setelah sort: ${tanggalSetelahSort}`
+            );
+            cy.wrap(tanggalSetelahSort).as("tanggalSetelahSort");
+          });
       });
 
     // Step 11: Verify tabel masih menampilkan data (sorted/filtered)
