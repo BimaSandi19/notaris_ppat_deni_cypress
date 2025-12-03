@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
@@ -6,6 +7,10 @@ module.exports = defineConfig({
     specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
     supportFile: "cypress/support/e2e.js",
     chromeWebSecurity: false,
+    env: {
+      TEST_USERNAME: process.env.CYPRESS_TEST_USERNAME || "",
+      TEST_PASSWORD: process.env.CYPRESS_TEST_PASSWORD || "",
+    },
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },

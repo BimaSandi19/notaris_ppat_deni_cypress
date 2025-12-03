@@ -11,6 +11,14 @@ export const loginUser = (username = null, password = null) => {
   const user = username || Cypress.env("TEST_USERNAME");
   const pass = password || Cypress.env("TEST_PASSWORD");
 
+  // Validasi credentials ada
+  if (!user || !pass) {
+    throw new Error(
+      `Missing credentials! TEST_USERNAME: ${user}, TEST_PASSWORD: ${pass}. ` +
+        `Please make sure .env file exists with CYPRESS_TEST_USERNAME and CYPRESS_TEST_PASSWORD`
+    );
+  }
+
   cy.visit("https://notarisdeni.web.id/login");
   cy.get('input[type="text"]').eq(0).type(user);
   cy.get('input[type="password"]').type(pass);
