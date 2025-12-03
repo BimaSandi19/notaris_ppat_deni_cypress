@@ -12,12 +12,12 @@ describe("AUTH - TC02 Login Success", () => {
     cy.get('input[type="text"]')
       .eq(0)
       .should("be.visible")
-      .type("keuangandn01");
+      .type(Cypress.env("TEST_USERNAME"));
 
     // Step 2: Input password valid
     cy.get('input[type="password"]')
       .should("be.visible")
-      .type("adminkeuangan@dn1");
+      .type(Cypress.env("TEST_PASSWORD"));
 
     // Step 3: Klik tombol Login
     cy.get("button").contains("Login").should("be.visible").click();

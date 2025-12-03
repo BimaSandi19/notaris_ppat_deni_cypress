@@ -1,13 +1,9 @@
+import { loginUser } from "../../support/helpers";
+
 describe("DASHBOARD - TC05 Tagihan Lunas Card", () => {
   beforeEach(() => {
     // Login terlebih dahulu sebelum mengakses dashboard
-    cy.visit("https://notarisdeni.web.id/login");
-    cy.get('input[type="text"]').eq(0).type("keuangandn01");
-    cy.get('input[type="password"]').type("adminkeuangan@dn1");
-    cy.get("button").contains("Login").click();
-
-    // Tunggu redirect ke dashboard
-    cy.url({ timeout: 10000 }).should("include", "/admin/dashboard");
+    loginUser();
   });
 
   /**

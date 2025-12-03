@@ -3,6 +3,24 @@
  */
 
 /**
+ * Login dengan credentials dari environment variables
+ * @param {string} username - optional: override username dari env
+ * @param {string} password - optional: override password dari env
+ */
+export const loginUser = (username = null, password = null) => {
+  const user = username || Cypress.env("TEST_USERNAME");
+  const pass = password || Cypress.env("TEST_PASSWORD");
+
+  cy.visit("https://notarisdeni.web.id/login");
+  cy.get('input[type="text"]').eq(0).type(user);
+  cy.get('input[type="password"]').type(pass);
+  cy.get("button").contains("Login").click();
+
+  // Tunggu redirect ke dashboard
+  cy.url({ timeout: 10000 }).should("include", "/admin/dashboard");
+};
+
+/**
  * Generate random string dengan prefix
  * @param {string} prefix - prefix untuk string
  * @param {number} length - panjang random part

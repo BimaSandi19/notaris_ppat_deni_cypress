@@ -1,10 +1,8 @@
+import { loginUser } from "../../support/helpers";
+
 describe("HISTORY - TC26 Export PDF History Tagihan", () => {
   beforeEach(() => {
-    // Login terlebih dahulu
-    cy.visit("https://notarisdeni.web.id/login");
-    cy.get('input[type="text"]').eq(0).type("keuangandn01");
-    cy.get('input[type="password"]').type("adminkeuangan@dn1");
-    cy.get("button").contains("Login").click();
+    loginUser();
 
     // Tunggu redirect ke dashboard
     cy.url({ timeout: 10000 }).should("include", "/admin/dashboard");

@@ -12,7 +12,7 @@ describe("AUTH - TC03 Login Failed", () => {
     cy.get('input[type="text"]')
       .eq(0)
       .should("be.visible")
-      .type("keuangandn01");
+      .type(Cypress.env("TEST_USERNAME"));
 
     // Step 2: Input password salah
     cy.get('input[type="password"]')

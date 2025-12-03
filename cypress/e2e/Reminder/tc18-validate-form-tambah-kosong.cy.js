@@ -1,4 +1,5 @@
 import {
+  loginUser,
   generateRandomClientName,
   generateRandomKwitansi,
   generateRandomNominal,
@@ -9,13 +10,7 @@ import {
 describe("REMINDER - TC18 Validasi Form Tambah Tagihan Kosong", () => {
   beforeEach(() => {
     // Login terlebih dahulu
-    cy.visit("https://notarisdeni.web.id/login");
-    cy.get('input[type="text"]').eq(0).type("keuangandn01");
-    cy.get('input[type="password"]').type("adminkeuangan@dn1");
-    cy.get("button").contains("Login").click();
-
-    // Tunggu redirect ke dashboard
-    cy.url({ timeout: 10000 }).should("include", "/admin/dashboard");
+    loginUser();
 
     // Navigate ke halaman pengingat dari menu
     cy.contains("Pengingat").should("be.visible").click();
